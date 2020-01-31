@@ -1,0 +1,44 @@
+<form class="container" [formGroup]="userForm" (ngSubmit)="add()">
+  <div class="form-group">
+    <label>Firstname</label>
+    <input type="text" formControlName="fname" class="form-control" placeholder="Enter First Name">
+    <div *ngIf="hasError('fname')" style="color: red;">
+      <p *ngIf="get('fname').errors.required" style="color: red;">Firstname cannot be empty</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Lastname</label>
+    <input type="text" formControlName="lname" class="form-control" placeholder="Enter Last Name">
+    <div *ngIf="hasError('lname')" style="color: red;">
+      <p *ngIf="get('lname').errors.required" style="color: red;">Lastname cannot be empty</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" formControlName="email" class="form-control" placeholder="Enter email">
+    <div *ngIf="hasError('email')" style="color: red;">
+      <p *ngIf="get('email').errors.required" style="color: red;">E-mail cannot be empty</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" formControlName="pass1" class="form-control" placeholder="Enter Password">
+    <div *ngIf="hasError('pass1')" style="color: red;">
+      <p *ngIf="get('pass1').errors.required" style="color: red;">Password cannot be empty</p>
+      <p *ngIf="get('pass1').errors.minlength" style="color: red;">Minimum length should be 8</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Retype Password</label>
+    <input type="password" formControlName="pass2" class="form-control" placeholder="Enter Password again">
+    <div>
+      <p *ngIf="hasError('pass2') && get('pass2').errors.required" style="color: red;">Password cannot be empty</p>
+      <p *ngIf="(get('pass2').dirty || get('pass2').touched ) && userForm.errors?.passwordNotSame" style="color: red;">Password mismatch</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Referal Code(if any)</label>
+    <input type="text" formControlName="referalId" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+</form>
