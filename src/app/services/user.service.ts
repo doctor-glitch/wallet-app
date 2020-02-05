@@ -8,14 +8,14 @@ import { baseUrl } from '../config/config';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  user(fname, lname, email, password, referalId) {
-    console.log(fname, lname, email, password, referalId);
+  user(fname, lname, email, password, referedBy) {
+    console.log(fname, lname, email, password, referedBy);
     return this.http.post(`${baseUrl}register`, {
       fname,
       lname,
       email,
       password,
-      referalId,
+      referedBy,
     }, { withCredentials: true });
   }
   login(email, password) {
