@@ -11,9 +11,19 @@ export class ProductService {
 
   product(id) {
     console.log('hello', baseUrl);
-    return this.http.post(`${baseUrl}`,{
+    return this.http.post(`${baseUrl}`, {
       id
     }
       , { withCredentials: true });
+  }
+  checkout(signUp, referal, mainBal, price) {
+    console.log(signUp, referal, mainBal);
+    return this.http.post(`${baseUrl}checkout`, {
+      signUp,
+      referal,
+      mainBal,
+      price
+    }  , { withCredentials: true }
+    );
   }
 }

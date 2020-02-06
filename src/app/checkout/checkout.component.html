@@ -2,42 +2,78 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img [src]="location" alt="Card image cap " height="100" width="100"><br/><br/><br/>
+      <img
+        [src]="location"
+        alt="Card image cap "
+        height="100"
+        width="100"
+      /><br /><br /><br />
     </div>
     <div class="col">
-      <table class="table">
-
-        <thead>
-          <tr>
-            <th>Details</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Price</td>
-            <td><h5>{{price}} USD</h5></td>
-          </tr>
-          <tr>
-            <td>Use Signup Credits</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>Use Referal Credit </td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>Use Main Wallet Balance </td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <td>Final Amount to pay</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      <form [formGroup]="checkoutForm">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Details</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price</td>
+              <td>
+                <h5>{{ price }} USD</h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    formControlName="signUp"
+                  />
+                  <label class="form-check-label">Use Signup Credits</label>
+                </div>
+              </td>
+              <td>-{{ signupCredit }}USD</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    formControlName="referal"
+                  />
+                  <label class="form-check-label">Use Referal Credit</label>
+                </div>
+              </td>
+              <td>-{{ referalCredit }}USD</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    formControlName="mainBal"
+                  />
+                  <label class="form-check-label"
+                    >Use Main Wallet Balance</label
+                  >
+                </div>
+              </td>
+              <td>-{{ mainBalance }} USD</td>
+            </tr>
+            <tr>
+              <td>Final Amount to pay</td>
+              <td>{{ finalBalance }}USD</td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
   </div>
-  <button class="btn btn-success"> PROCEED TO PAY USD</button>
+  <button class="btn btn-success">PROCEED TO PAY USD</button>
 </div>
