@@ -23,7 +23,19 @@ export class ProductService {
       referal,
       mainBal,
       price
-    }  , { withCredentials: true }
+    }, { withCredentials: true }
+    );
+  }
+  UpdateAll(signupCredit, referalCredit, cashback, refunds, referalComm, SalesComm, price) {
+    return this.http.put(`${baseUrl}edit`, {
+      signupCredit,
+      referalCredit,
+      cashback,
+      refunds,
+      referalComm,
+      SalesComm,
+      price
+    }, { withCredentials: true }
     );
   }
 }

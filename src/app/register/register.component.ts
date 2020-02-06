@@ -53,6 +53,16 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  home() {
+    this.router.navigate(['']);
+  }
+  register() {
+    this.router.navigate(['register']);
+  }
+  login() {
+    this.router.navigate(['login']);
+  }
+
   get(controlName) {
     return this.userForm.get(controlName);
   }

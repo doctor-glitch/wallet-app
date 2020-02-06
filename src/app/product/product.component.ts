@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HelloService } from '../services/hello.service';
 
 @Component({
   selector: 'app-product',
@@ -12,10 +13,22 @@ export class ProductComponent implements OnInit {
   price: any;
   description: any;
   id: any;
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) { }
+  usr: any;
+  constructor(private ser: HelloService, private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+    this.usr = ser.getItem('user');
+  }
 
   checkout() {
     this.router.navigate([`/product/${this.id}/checkout`]);
+  }
+  home() {
+    this.router.navigate(['']);
+  }
+  register() {
+    this.router.navigate(['register']);
+  }
+  login() {
+    this.router.navigate(['login']);
   }
   ngOnInit() {
     this.route.params.subscribe(params => {

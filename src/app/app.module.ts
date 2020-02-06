@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor.service';
 import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     RegisterComponent,
     HomeComponent,
     ProductComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

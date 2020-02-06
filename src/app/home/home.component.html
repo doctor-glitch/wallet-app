@@ -1,16 +1,43 @@
-<div class="container-fluid">
-  <h5 id ='usr'>HI {{ usr }}</h5>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" (click)="home()">HOME</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="register()"
+          >REGISTER <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="login()">LOGIN</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hi {{ usr }}</button>
+    </form>
+  </div>
+</nav>
 
 <div class="container">
+  <!-- <button class="btn btn-warning" (click)='banner()'>Signup Here for special offer</button> -->
   <div class="row">
-
     <div class="col-sm-5">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="/assets/res/shark.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Black Shark 2 (Shadow Black, 128 GB)  (6 GB RAM)</h5>
-          <p class="card-text">400 USD <del> 600 USD </del> 34% off</p>
+          <p class="card-text">{{price}} USD <del> 600 USD </del> 34% off</p>
           <a routerLink="/product/5e3ae50b41ed313440fc97da" class="btn btn-primary">View Product</a>
         </div>
       </div>

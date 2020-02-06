@@ -22,7 +22,15 @@ export class LoginComponent implements OnInit {
       ]),
     });
   }
-
+  home() {
+    this.router.navigate(['']);
+  }
+  register() {
+    this.router.navigate(['register']);
+  }
+  login() {
+    this.router.navigate(['login']);
+  }
   check() {
     console.log(this.loginForm);
     if (!this.loginForm.valid) {
